@@ -5,7 +5,37 @@
   margin: 0;
   box-sizing: border-box;
 }
+.blur-scroll-box {
+  transform: translateY(-300%);
+  text-align: justify;
+  width: 90vw;
+  max-width: 400px;
+  height: 150px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  color: white;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  font-family: sans-serif;
+}
 
+/* Sembunyikan scrollbar di WebKit (Chrome, Safari) */
+.blur-scroll-box::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tambahan: Media query untuk landscape mode */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+  .blur-scroll-box {
+    height: 120px; /* Sedikit lebih pendek di mode landscape */
+    font-size: 14px; /* Kecilkan teks jika perlu */
+  }
+}
 :root {
   --dark-color: #000;
 }
@@ -63,7 +93,7 @@ body {
 }
 
 .flowers {
-  position: relative;
+  position: absolute;
   transform: scale(0.9);
 }
 
